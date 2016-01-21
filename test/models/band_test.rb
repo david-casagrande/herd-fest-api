@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe Band do
-  subject { Band.new }
+  subject { Fabricate(:band) }
 
   it 'exists' do
     assert subject.valid? true
