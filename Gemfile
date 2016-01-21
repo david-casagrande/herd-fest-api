@@ -12,6 +12,8 @@ gem 'pg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'turbolinks'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'spring'
