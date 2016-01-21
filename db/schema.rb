@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160121185619) do
     t.datetime "updated_at"
   end
 
-  create_table "set_times", force: :cascade do |t|
+  create_table "set_times", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "band_id"
     t.date     "date"
     t.time     "start_time"

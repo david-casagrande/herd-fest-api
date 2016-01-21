@@ -1,6 +1,6 @@
 class CreateSetTime < ActiveRecord::Migration
   def change
-    create_table :set_times do |t|
+    create_table :set_times, id: :uuid do |t|
       t.uuid :band_id
       t.date :date
       t.time :start_time
