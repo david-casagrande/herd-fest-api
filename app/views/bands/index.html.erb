@@ -1,6 +1,20 @@
 <h1>Bands Playing Herd Fest</h1>
 <ul>
   <% bands.each do |band| %>
-    <li><%= band.name %></li>
+    <li>
+      <p><strong><%= band.name %></strong> will be playing at:</p>
+      <ul>
+        <% band.venues.each do |venue| %>
+          <li>
+            <%= venue.name %> @
+            <ul>
+              <% set_time_for(band, venue).each do |set_time| %>
+                <li><%= set_time.date.strftime('%D') %> - <%= set_time.start_time.strftime('%I:%M:%S %p') %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+    </li>
   <% end %>
 </ul>
