@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: <%= ENV['USER'] %>
+
+development:
+  <<: *default
+  database: herd_fest_development
+  pool: 5
+
+test:
+  <<: *default
+  database: herd_fest_test
+  pool: 1
+
+production:
+  <<: *default
+  database: herd_fest
