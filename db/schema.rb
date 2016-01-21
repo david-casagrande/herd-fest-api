@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121184927) do
+ActiveRecord::Schema.define(version: 20160121185619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20160121184927) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "set_times", force: :cascade do |t|
+    t.uuid     "band_id"
+    t.date     "date"
+    t.time     "start_time"
+    t.uuid     "venue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "set_times", ["band_id"], name: "index_set_times_on_band_id", using: :btree
+  add_index "set_times", ["venue_id"], name: "index_set_times_on_venue_id", using: :btree
 
   create_table "venues", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
