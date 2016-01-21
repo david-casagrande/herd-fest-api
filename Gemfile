@@ -15,4 +15,6 @@ gem 'pg'
 
 group :development, :test do
   gem 'spring'
+  gem 'minitest-rails'
+  gem 'fabrication'
 end
