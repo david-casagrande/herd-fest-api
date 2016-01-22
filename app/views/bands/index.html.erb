@@ -2,16 +2,11 @@
 <ul>
   <% bands.each do |band| %>
     <li>
-      <p><strong><%= band.name %></strong> will be playing at:</p>
+      <p><strong><%= band.name %></strong> <% if (band.set_times.empty?) %>is not playing anywhere<% else %>will be playing at:<% end %></p>
       <ul>
-        <% band.venues.each do |venue| %>
+        <% band.set_times.each do |set_time| %>
           <li>
-            <%= venue.name %> @
-            <ul>
-              <% set_time_for(band, venue).each do |set_time| %>
-                <li><%= default_date(set_time.date) %> - <%= default_time(set_time.start_time) %></li>
-              <% end %>
-            </ul>
+            <p><%= set_time.venue.name %> on <%= default_date(set_time.date) %> - <%= default_time(set_time.start_time) %></p>
           </li>
         <% end %>
       </ul>
