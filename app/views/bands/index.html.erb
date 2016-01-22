@@ -9,7 +9,7 @@
             <%= venue.name %> @
             <ul>
               <% set_time_for(band, venue).each do |set_time| %>
-                <li><%= set_time.date.strftime('%D') %> - <%= set_time.start_time.strftime('%l:%M %p') %></li>
+                <li><%= default_date(set_time.date) %> - <%= default_time(set_time.start_time) %></li>
               <% end %>
             </ul>
           </li>

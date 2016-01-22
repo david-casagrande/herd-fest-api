@@ -34,4 +34,56 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'Band' do
+    edit do
+      exclude_fields :venues
+    end
+
+    list do
+      exclude_fields :id, :created_at, :updated_at, :venues
+    end
+  end
+
+  config.model 'Venue' do
+    edit do
+      exclude_fields :bands
+    end
+
+    list do
+      exclude_fields :id, :created_at, :updated_at, :bands
+    end
+  end
+
+  config.model 'SetTime' do
+    object_label_method do
+      :set_time_object_label
+    end
+
+    list do
+      exclude_fields :id, :created_at, :updated_at
+
+      field :start_time do
+        formatted_value do
+          default_time(value)
+        end
+
+        pretty_value do
+          default_time(value)
+        end
+      end
+    end
+  end
+
+  def set_time_object_label
+    "#{default_date(self.date)} #{default_time(self.start_time)}"
+  end
+
+  def default_date(date)
+    date.strftime('%D')
+  end
+
+  def default_time(time)
+    time.strftime('%l:%M %p')
+  end
 end
