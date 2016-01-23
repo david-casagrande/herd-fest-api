@@ -35,6 +35,13 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.main_app_name = 'Herd Fest'
+
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+  config.current_user_method(&:current_admin)
+
   config.model 'Band' do
     edit do
       exclude_fields :venues
