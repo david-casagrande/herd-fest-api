@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/manage', as: 'rails_admin'
 
-  resources :bands, only: [:index]
-  resources :venues, only: [:index]
+  namespace :api do
+    resources :bands, only: [:index]
+    resources :venues, only: [:index]
+  end
 
   root 'rails_admin/main#dashboard'
 end
