@@ -201,7 +201,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.1.0)
   fabrication (~> 2.14.1)
   minitest-rails (~> 2.2.0)
-  omniauth-google-oauth2
+  omniauth-google-oauth2 (~> 0.3.0)
   pg (~> 0.18.2)
   rails (= 4.2.1)
   rails_admin (~> 0.8.1)

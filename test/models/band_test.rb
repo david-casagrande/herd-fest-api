@@ -20,8 +20,10 @@ describe Band do
     end
 
     it 'destroys set time when it is destroyed' do
+      expected = SetTime.all.count - 1
+
       subject.destroy!
-      assert_equal(0, SetTime.all.count)
+      assert_equal(expected, SetTime.all.count)
     end
   end
 

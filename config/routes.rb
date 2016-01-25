@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :bands, only: [:index]
     resources :venues, only: [:index]
+    resources :set_times, only: [:index]
   end
 
   root 'rails_admin/main#dashboard'

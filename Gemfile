@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 
 gem 'devise', '~> 3.5.5'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-google-oauth2', '~> 0.3.0'
 gem 'pg', '~> 0.18.2'
 gem 'rails_admin', '~> 0.8.1'
 gem 'turbolinks', '~> 2.5.3'
