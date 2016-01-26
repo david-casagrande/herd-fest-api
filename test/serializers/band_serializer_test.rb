@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe 'BandSerializer' do
+describe BandSerializer do
   let(:model) { Fabricate(:band) }
   let(:set_time) { Fabricate(:set_time, band: band) }
 

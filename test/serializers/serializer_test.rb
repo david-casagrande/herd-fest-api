@@ -1,7 +1,9 @@
 require 'test_helper'
 
-describe 'BaseSerializer' do
-  class SubClass < BaseSerializer
+describe Serializer do
+  class SubClass
+    include Serializer
+
     def serialize(model)
       {
         id: model.id

@@ -1,4 +1,4 @@
-class BaseSerializer
+module Serializer
   def initialize(model)
     @model = model
   end

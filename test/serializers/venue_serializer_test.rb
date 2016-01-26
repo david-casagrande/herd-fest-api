@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe 'VenueSerializer' do
+describe VenueSerializer do
   let(:model) { Fabricate(:venue) }
   let(:set_time) { Fabricate(:set_time, band: band) }
 

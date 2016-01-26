@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe 'SetTimeSerializer' do
+describe SetTimeSerializer do
   let(:model) { Fabricate(:set_time) }
 
   subject { SetTimeSerializer.new(model) }

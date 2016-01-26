@@ -1,4 +1,6 @@
-class BandSerializer < BaseSerializer
+class BandSerializer
+  include Serializer
+
   def serialize(model)
     {
       id: model.id,

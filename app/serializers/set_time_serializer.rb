@@ -1,4 +1,6 @@
-class SetTimeSerializer < BaseSerializer
+class SetTimeSerializer
+  include Serializer
+
   def serialize(model)
     {
       id: model.id,

@@ -1,4 +1,6 @@
-class VenueSerializer < BaseSerializer
+class VenueSerializer
+  include Serializer
+
   def serialize(model)
     {
       id: model.id,
