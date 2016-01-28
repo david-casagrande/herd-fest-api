@@ -10,7 +10,6 @@ module Cache
   private
 
   def cache
-    fail Rails.env.inspect
     return if Rails.env == 'test'
     CacheFullSchedule.call
   end
