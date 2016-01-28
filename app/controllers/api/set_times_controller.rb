@@ -7,7 +7,7 @@ module API
     private
 
     def serialized_set_times
-      @serialized_bands ||= SetTimeSerializer.new(set_times)
+      @serialized_set_times ||= SetTimeSerializer.new(set_times)
     end
 
     def set_times

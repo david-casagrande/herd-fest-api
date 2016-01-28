@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bands, only: [:index]
     resources :venues, only: [:index]
     resources :set_times, only: [:index]
+    resources :full_schedule, only: [:index]
   end
 
   root 'rails_admin/main#dashboard'
