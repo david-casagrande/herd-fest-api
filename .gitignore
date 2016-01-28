@@ -21,6 +21,7 @@
 # Ignore gemset setup file
 .ruby-gemset
 
-
 config/application.yml
 .env
+json
+test_json
