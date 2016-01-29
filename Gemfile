@@ -8,6 +8,7 @@ gem 'omniauth-google-oauth2', '~> 0.3.0'
 gem 'pg', '~> 0.18.2'
 gem 'rails_admin', '~> 0.8.1'
 gem 'turbolinks', '~> 2.5.3'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'database_cleaner', '~> 1.5.1'
