@@ -5,18 +5,13 @@ describe CacheFullSchedule do
 
   it 'creates a json file of the returned results' do
     made_dir = false
-    mkdir = lambda { |directory|
+    mkdir = lambda do |_directory|
       made_dir = true
-    }
+    end
 
     mock = MiniTest::Mock.new
     json = { test: 'hey' }
     mock.expect(:write, nil, [json.to_json])
-
-    fussy = lambda { |filename, mode|
-      assert_equal('w', mode)
-      mock
-    }
 
     full_schedule = MiniTest::Mock.new
     full_schedule.expect(:result, json)
@@ -37,19 +32,19 @@ describe CacheFullSchedule do
   end
 
   it 'deletes file if it exists on error' do
-    directory_lambda = lambda { |directory|
-      fail Exception.new('Failure')
-    }
+    directory_lambda = lambda do |_directory|
+      fail StandardError, 'Failure'
+    end
 
     delete_file = false
-    mkdir = lambda { |directory|
+    mkdir = lambda do |_directory|
       delete_file = true
-    }
+    end
 
     File.stub(:directory?, directory_lambda) do
       File.stub(:exist?, true) do
         File.stub(:delete, mkdir) do
-          full_schedule = subject.call
+          subject.call
           assert(delete_file)
         end
       end

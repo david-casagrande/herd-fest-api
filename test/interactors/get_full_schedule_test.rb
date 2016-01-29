@@ -22,7 +22,7 @@ describe GetFullSchedule do
 
   describe 'when fresh argument is set to true' do
     it 'always retrieves records from db' do
-      File.stub(:exists?, true) do
+      File.stub(:exist?, true) do
         assert_equal(subject.call(fresh: true).result.to_json, expected.to_json)
       end
     end
@@ -30,7 +30,7 @@ describe GetFullSchedule do
 
   describe 'there is not a cached json file' do
     it 'retrieves records from db' do
-      File.stub(:exists?, false) do
+      File.stub(:exist?, false) do
         assert_equal(subject.call(fresh: true).result.to_json, expected.to_json)
       end
     end
@@ -44,7 +44,7 @@ describe GetFullSchedule do
     end
 
     it 'retrieves the cached json' do
-      File.stub(:exists?, true) do
+      File.stub(:exist?, true) do
         File.stub(:read, json.to_json) do
           assert_equal(subject.call.result.to_json, json.to_json)
         end

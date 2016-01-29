@@ -1,5 +1,4 @@
 RailsAdmin.config do |config|
-
   ### Popular gems integration
 
   ## == Devise ==
@@ -84,7 +83,7 @@ RailsAdmin.config do |config|
   end
 
   def set_time_object_label
-    "#{default_date(self.date)} #{default_time(self.start_time)}"
+    "#{default_date(date)} #{default_time(start_time)}"
   end
 
   def default_date(date)

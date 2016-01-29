@@ -25,7 +25,7 @@ module Api
 
     config.generators do |g|
       g.test_framework      :minitest, spec: true, fixture_replacement: :fabrication
-      g.fixture_replacement :fabrication, dir: "test/fabricators"
+      g.fixture_replacement :fabrication, dir: 'test/fabricators'
     end
   end
 end

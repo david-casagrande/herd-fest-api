@@ -21,5 +21,6 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.1.0'
   gem 'fabrication', '~> 2.14.1'
   gem 'minitest-rails', '~> 2.2.0'
+  gem 'rubocop'
   gem 'spring', '~> 1.6.2'
 end

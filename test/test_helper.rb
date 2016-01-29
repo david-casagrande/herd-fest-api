@@ -13,19 +13,24 @@ require 'database_cleaner'
 # Uncomment for awesome colorful output
 # require "minitest/pride"
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-  # Add more helper methods to be used by all tests here...
+module ActiveSupport
+  class TestCase
+    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+    fixtures :all
+    # Add more helper methods to be used by all tests here...
+  end
 end
 
 DatabaseCleaner.strategy = :transaction
-class Minitest::Spec
-  before :each do
-    DatabaseCleaner.start
-  end
 
-  after :each do
-    DatabaseCleaner.clean
+module Minitest
+  class Spec
+    before :each do
+      DatabaseCleaner.start
+    end
+
+    after :each do
+      DatabaseCleaner.clean
+    end
   end
 end

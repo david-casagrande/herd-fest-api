@@ -2,13 +2,11 @@ class CacheFullSchedule
   include Interactor
 
   def call
-    begin
-      create_directory
-      create_file
-    rescue Exception => e
-      File.delete(file_path) if File.exist?(file_path)
-      context.fail!(error: e)
-    end
+    create_directory
+    create_file
+  rescue StandardError => e
+    File.delete(file_path) if File.exist?(file_path)
+    context.fail!(error: e)
   end
 
   private

@@ -16,6 +16,6 @@ module Serializer
     end
   end
 
-  alias_method :to_hash, :to_h
+  alias to_hash to_h
   delegate :to_json, to: :to_h
 end

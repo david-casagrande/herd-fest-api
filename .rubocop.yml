@@ -1,0 +1,57 @@
+---
+AllCops:
+  Include:
+    - config.ru
+    - config/deploy.rb
+    - Gemfile
+    - Rakefile
+    - lib/**/*.rake
+  Exclude:
+    - .gems/**/*
+    - bin/*
+    - db/schema.rb
+    - vendor/**/*
+  Rails:
+    Enabled: true
+
+# Handle via inch instead.
+Style/Documentation:
+  Enabled: false
+
+# Disable because there needs to be two blank lines below the file header for
+# YARD not to pick it up.
+Style/EmptyLines:
+  Enabled: false
+
+Style/FileName:
+  Exclude:
+    - !ruby/regexp /(\d+)-(\w+)\.rb$/
+    - !ruby/regexp /development\.rb$/
+    - !ruby/regexp /vagrant\.rb$/
+    - Gemfile
+    - Rakefile
+
+Style/TrivialAccessors:
+  AllowPredicates: true
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**/*
+  Max: 25
+
+Metrics/ClassLength:
+  Exclude:
+    - db/migrate/**/*
+
+Metrics/LineLength:
+  Exclude:
+    - db/migrate/**/*
+  Max: 140
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*
+
+Rails/Output:
+  Exclude:
+    - config/deploy.rb

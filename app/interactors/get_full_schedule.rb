@@ -6,7 +6,7 @@ class GetFullSchedule
 
     begin
       context.result = get
-    rescue Exception => e
+    rescue StandardError => e
       context.fail!(error: e)
     end
   end
@@ -18,7 +18,7 @@ class GetFullSchedule
   end
 
   def get
-    return fresh_schedule if context.fresh || !File.exists?(file_path)
+    return fresh_schedule if context.fresh || !File.exist?(file_path)
     cached_schedule
   end
 
