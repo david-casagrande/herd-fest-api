@@ -9,6 +9,7 @@ gem 'pg', '~> 0.18.2'
 gem 'rails_admin', '~> 0.8.1'
 gem 'turbolinks', '~> 2.5.3'
 gem 'rails_12factor'
+gem 'uglifier'
 
 group :development, :test do
   gem 'database_cleaner', '~> 1.5.1'
