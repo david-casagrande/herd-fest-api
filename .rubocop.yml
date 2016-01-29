@@ -1,7 +1,6 @@
 ---
 AllCops:
   Include:
-    - config.ru
     - config/deploy.rb
     - Gemfile
     - Rakefile
@@ -11,8 +10,9 @@ AllCops:
     - bin/*
     - db/schema.rb
     - vendor/**/*
-  Rails:
-    Enabled: true
+
+Rails:
+  Enabled: true
 
 # Handle via inch instead.
 Style/Documentation:

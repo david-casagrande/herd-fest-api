@@ -5,6 +5,6 @@ class Admin < ActiveRecord::Base
 
   def self.from_omniauth(access_token)
     data = access_token.info
-    Admin.where(email: data['email']).first || nil
+    Admin.find_by(email: data['email']) || nil
   end
 end
