@@ -16,5 +16,6 @@ test:
 
 production:
   <<: *default
+  pool: <%= ENV['DB_POOL'] %>
   host: <%= ENV['DATA_BASE_URL'] %>
   database: herd_fest_production

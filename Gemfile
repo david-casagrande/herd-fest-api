@@ -6,6 +6,8 @@ gem 'devise', '~> 3.5.5'
 gem 'interactor', '~> 3.1.0'
 gem 'omniauth-google-oauth2', '~> 0.3.0'
 gem 'pg', '~> 0.18.2'
+gem 'puma', '~> 2.16.0'
+gem 'rack-timeout', '~> 0.3.2'
 gem 'rails_admin', '~> 0.8.1'
 gem 'turbolinks', '~> 2.5.3'
 
