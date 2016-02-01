@@ -12,7 +12,7 @@ describe GetFullSchedule do
     }
   end
 
-  subject { GetFullScheduleDB }
+  subject { GetFullSchedule }
 
   before do
     band
