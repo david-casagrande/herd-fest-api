@@ -8,7 +8,7 @@ module API
     private
 
     def schedule
-      GetFullSchedule.call
+      @schedule ||= GetFullSchedule.call
     end
   end
 end
