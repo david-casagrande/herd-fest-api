@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131044356) do
+ActiveRecord::Schema.define(version: 20160201171610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160131044356) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "cache_stores", ["created_at"], name: "index_cache_stores_on_created_at", using: :btree
 
   create_table "set_times", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "band_id"
