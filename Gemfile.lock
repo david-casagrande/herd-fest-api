@@ -233,7 +233,7 @@ DEPENDENCIES
   rails (= 4.2.1)
   rails_12factor (~> 0.0.3)
   rails_admin (~> 0.8.1)
-  rubocop
+  rubocop (~> 0.36.0)
   spring (~> 1.6.2)
   turbolinks (~> 2.5.3)
   uglifier (~> 2.7.2)

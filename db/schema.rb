@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123154808) do
+ActiveRecord::Schema.define(version: 20160131044356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20160123154808) do
   create_table "bands", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cache_stores", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.json     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

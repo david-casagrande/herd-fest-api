@@ -12,7 +12,7 @@ describe GetFullSchedule do
     }
   end
 
-  subject { GetFullSchedule }
+  subject { GetFullScheduleDB }
 
   before do
     band
@@ -22,33 +22,29 @@ describe GetFullSchedule do
 
   describe 'when fresh argument is set to true' do
     it 'always retrieves records from db' do
-      File.stub(:exist?, true) do
-        assert_equal(subject.call(fresh: true).result.to_json, expected.to_json)
-      end
+      assert_equal(subject.call(fresh: true).result.to_json, expected.to_json)
     end
   end
 
-  describe 'there is not a cached json file' do
+  describe 'there are no cached records' do
     it 'retrieves records from db' do
-      File.stub(:exist?, false) do
-        assert_equal(subject.call(fresh: true).result.to_json, expected.to_json)
-      end
+      assert_equal(subject.call.result.to_json, expected.to_json)
     end
   end
 
-  describe 'there is a cached json file' do
-    let(:json) do
+  describe 'there are cached records' do
+    let(:data) do
       {
         test: []
       }
     end
 
+    before do
+      CacheStore.create(data: data)
+    end
+
     it 'retrieves the cached json' do
-      File.stub(:exist?, true) do
-        File.stub(:read, json.to_json) do
-          assert_equal(subject.call.result.to_json, json.to_json)
-        end
-      end
+      assert_equal(subject.call.result.to_json, data.to_json)
     end
   end
 end

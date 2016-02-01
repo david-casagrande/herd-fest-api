@@ -13,21 +13,17 @@ class GetFullSchedule
 
   private
 
-  def file_path
-    Rails.root.join(ENV['JSON_CACHE_DIRECTORY'], ENV['JSON_CACHE_FULL_SCHEDULE'])
-  end
-
   def get
-    return fresh_schedule if context.fresh || !File.exist?(file_path)
-    cached_schedule
+    return fresh_schedule if context.fresh || !cached_schedule
+    cached_schedule.data
   end
 
   def cached_schedule
-    JSON.parse(File.read(file_path))
+    @cached_schedule ||= CacheStore.latest
   end
 
   def fresh_schedule
-    {
+    @fresh_schedule ||= {
       bands: bands,
       venues: venues,
       set_times: set_times
