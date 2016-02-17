@@ -84,7 +84,7 @@ RailsAdmin.config do |config|
   end
 
   def set_time_object_label
-    "#{default_date(date)} #{default_time(start_time)}"
+    "#{default_time(start_time)}"
   end
 
   def default_date(date)
