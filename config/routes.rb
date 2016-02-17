@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :bands, only: [:index]
+    resources :days, only: [:index]
     resources :venues, only: [:index]
     resources :set_times, only: [:index]
     resources :full_schedule, only: [:index]

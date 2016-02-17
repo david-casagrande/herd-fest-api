@@ -25,6 +25,7 @@ class GetFullSchedule
   def fresh_schedule
     @fresh_schedule ||= {
       bands: bands,
+      days: days,
       venues: venues,
       set_times: set_times
     }
@@ -32,6 +33,10 @@ class GetFullSchedule
 
   def bands
     BandSerializer.new(Band.all.includes(:set_times, :venues))
+  end
+
+  def days
+    DaySerializer.new(Day.all.includes(:set_times, :bands,:venues))
   end
 
   def venues

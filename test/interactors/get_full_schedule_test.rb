@@ -2,11 +2,13 @@ require 'test_helper'
 
 describe GetFullSchedule do
   let(:band) { Fabricate(:band) }
+  let(:day) { Fabricate(:day) }
   let(:venue) { Fabricate(:venue) }
-  let(:set_time) { Fabricate(:set_time, band: band, venue: venue) }
+  let(:set_time) { Fabricate(:set_time, band: band, venue: venue, day: day) }
   let(:expected) do
     {
       bands: BandSerializer.new(Band.all),
+      day: DaySerializer.new(Day.all),
       venues: VenueSerializer.new(Venue.all),
       set_times: SetTimeSerializer.new(SetTime.all)
     }
@@ -16,6 +18,7 @@ describe GetFullSchedule do
 
   before do
     band
+    day
     venue
     set_time
   end
