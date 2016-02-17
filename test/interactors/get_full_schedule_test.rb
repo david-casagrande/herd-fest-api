@@ -8,7 +8,7 @@ describe GetFullSchedule do
   let(:expected) do
     {
       bands: BandSerializer.new(Band.all),
-      day: DaySerializer.new(Day.all),
+      days: DaySerializer.new(Day.all),
       venues: VenueSerializer.new(Venue.all),
       set_times: SetTimeSerializer.new(SetTime.all)
     }
