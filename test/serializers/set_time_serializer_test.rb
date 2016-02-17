@@ -9,10 +9,6 @@ describe SetTimeSerializer do
     assert_equal(subject.to_hash[:id], model.id)
   end
 
-  it 'includes date' do
-    assert_equal(subject.to_hash[:date], model.date)
-  end
-
   it 'includes start time' do
     assert_equal(subject.to_hash[:start_time], model.start_time)
   end
@@ -23,5 +19,9 @@ describe SetTimeSerializer do
 
   it 'includes venue' do
     assert_equal(subject.to_hash[:venue], model.venue.id)
+  end
+
+  it 'includes venue' do
+    assert_equal(subject.to_hash[:day], model.day.id)
   end
 end
