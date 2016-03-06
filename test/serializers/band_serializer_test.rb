@@ -14,7 +14,7 @@ describe BandSerializer do
     assert_equal(subject.to_hash[:name], model.name)
   end
 
-  it 'includes image_url ids' do
+  it 'includes image_url' do
     assert_equal(subject.to_hash[:image_url], model.image_url)
   end
 
