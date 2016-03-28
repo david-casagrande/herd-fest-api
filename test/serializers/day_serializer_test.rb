@@ -16,6 +16,10 @@ describe DaySerializer do
     assert_equal(subject.to_hash[:name], model.name)
   end
 
+  it 'includes date' do
+    assert_equal(subject.to_hash[:date], model.date)
+  end
+
   it 'includes band ids' do
     assert_equal(subject.to_hash[:bands], model.bands.map(&:id))
   end
