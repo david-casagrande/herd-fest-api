@@ -23,4 +23,5 @@ group :development, :test do
   gem 'minitest-rails', '~> 2.2.0'
   gem 'rubocop', '~> 0.36.0'
   gem 'spring', '~> 1.6.2'
+  gem 'wombat', '~> 2.5.1'
 end
