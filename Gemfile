@@ -14,6 +14,7 @@ gem 'turbolinks', '~> 2.5.3'
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
   gem 'uglifier', '~> 2.7.2'
+  gem 'wombat', '~> 2.5.1'
 end
 
 group :development, :test do
@@ -23,5 +24,4 @@ group :development, :test do
   gem 'minitest-rails', '~> 2.2.0'
   gem 'rubocop', '~> 0.36.0'
   gem 'spring', '~> 1.6.2'
-  gem 'wombat', '~> 2.5.1'
 end
