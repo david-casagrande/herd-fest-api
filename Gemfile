@@ -12,6 +12,7 @@ gem 'rails_admin', '~> 0.8.1'
 gem 'turbolinks', '~> 2.5.3'
 gem 'wombat', '~> 2.5.1'
 gem 'fabrication', '~> 2.14.1'
+gem 'google_drive'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'

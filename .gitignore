@@ -25,3 +25,5 @@ config/application.yml
 .env
 json
 test_json
+
+config.json
