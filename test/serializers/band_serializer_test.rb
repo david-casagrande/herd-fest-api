@@ -22,6 +22,14 @@ describe BandSerializer do
     assert_equal(subject.to_hash[:description], model.description)
   end
 
+  it 'includes facebook_url' do
+    assert_equal(subject.to_hash[:facebook_url], model.facebook_url)
+  end
+
+  it 'includes twitter_url' do
+    assert_equal(subject.to_hash[:twitter_url], model.twitter_url)
+  end
+
   it 'includes set time ids' do
     assert_equal(subject.to_hash[:set_times], model.set_times.map(&:id))
   end
