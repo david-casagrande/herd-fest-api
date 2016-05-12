@@ -45,21 +45,40 @@ RailsAdmin.config do |config|
 
   config.model 'Band' do
     edit do
-      exclude_fields :venues
+      field :name
+      field :description
+      field :image_url
+      field :facebook_url
+      field :twitter_url
     end
 
     list do
-      exclude_fields :id, :created_at, :updated_at, :venues
+      field :name
+      field :description
+    end
+  end
+
+  config.model 'Day' do
+    edit do
+      field :name
+      field :date
+    end
+
+    list do
+      field :name
+      field :date
     end
   end
 
   config.model 'Venue' do
     edit do
-      exclude_fields :bands
+      field :name
+      field :street_address
     end
 
     list do
-      exclude_fields :id, :created_at, :updated_at, :bands
+      field :name
+      field :street_address
     end
   end
 
@@ -68,9 +87,17 @@ RailsAdmin.config do |config|
       :set_time_object_label
     end
 
-    list do
-      exclude_fields :id, :created_at, :updated_at
+    edit do
+      field :day
+      field :band
+      field :venue
+      field :start_time
+    end
 
+    list do
+      field :day
+      field :band
+      field :venue
       field :start_time do
         formatted_value do
           default_time(value)
