@@ -10,7 +10,7 @@ module Cache
   private
 
   def cache
-    return if Rails.env == 'test' || ENV['DISABLE_CACHE']
+    return if Rails.env == 'test' || ENV['DISABLE_CACHE'] == 'true'
     CacheFullSchedule.call
   end
 end
