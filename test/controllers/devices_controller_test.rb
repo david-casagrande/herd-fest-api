@@ -22,7 +22,7 @@ describe API::DevicesController do
 
     it 'does not create a new device if one exists with given device_id and device_token' do
       id = SecureRandom.uuid
-      device = Fabricate(:device, device_id: id)
+      Fabricate(:device, device_id: id)
 
       post :create, device_id: id, device_token: 'new-token'
 
@@ -32,7 +32,7 @@ describe API::DevicesController do
 
     it 'fails if device_token is sent with nil' do
       id = SecureRandom.uuid
-      device = Fabricate(:device, device_id: id)
+      Fabricate(:device, device_id: id)
 
       post :create, device_id: id, device_token: nil
 
