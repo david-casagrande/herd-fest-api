@@ -2,7 +2,7 @@ require 'wombat'
 
 namespace :data do
   desc 'generate list of some chill bands'
-  task :buzz => :environment do
+  task buzz: :environment do
     puts 'killing all days...'
     Day.destroy_all
     puts 'new days dawn...'
@@ -59,10 +59,10 @@ namespace :data do
 
     Venue.all.each do |venue|
       days.each do |day|
-        Fabricate(:set_time, venue: venue, band: Band.order("RANDOM()").first, day: day, start_time: "22:00")
-        Fabricate(:set_time, venue: venue, band: Band.order("RANDOM()").first, day: day, start_time: "23:00")
-        Fabricate(:set_time, venue: venue, band: Band.order("RANDOM()").first, day: day, start_time: "00:00")
-        Fabricate(:set_time, venue: venue, band: Band.order("RANDOM()").first, day: day, start_time: "01:00")
+        Fabricate(:set_time, venue: venue, band: Band.order('RANDOM()').first, day: day, start_time: '22:00')
+        Fabricate(:set_time, venue: venue, band: Band.order('RANDOM()').first, day: day, start_time: '23:00')
+        Fabricate(:set_time, venue: venue, band: Band.order('RANDOM()').first, day: day, start_time: '00:00')
+        Fabricate(:set_time, venue: venue, band: Band.order('RANDOM()').first, day: day, start_time: '01:00')
       end
     end
 
