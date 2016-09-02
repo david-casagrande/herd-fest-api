@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831211928) do
+ActiveRecord::Schema.define(version: 20160902064935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+  enable_extension "pgcrypto"
 
   create_table "admins", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160831211928) do
 
   create_table "devices", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.uuid     "device_id"
-    t.string   "device_token"
+    t.text     "device_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
