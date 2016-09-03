@@ -8,7 +8,6 @@ class SendNotification
 
     Device.all.each do |device|
       notification = create_notification(device.device_token)
-      puts device.device_token
       connection.write(notification.message)
     end
 
