@@ -6,7 +6,7 @@ class SendNotification
   def call
     connection.open
 
-    Device.all.each do |device|
+    devices.each do |device|
       notification = create_notification(device.device_token)
       connection.write(notification.message)
     end
@@ -15,6 +15,10 @@ class SendNotification
   end
 
   private
+
+  def devices
+    context.devices ||= Device.all
+  end
 
   def create_notification(device)
     notification = Houston::Notification.new(device: device)
