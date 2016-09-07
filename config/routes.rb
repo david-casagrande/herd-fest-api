@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :venues, only: [:index]
     resources :set_times, only: [:index]
     resources :full_schedule, only: [:index]
-    resources :devices, only: [:create]
+    # resources :devices, only: [:create]
   end
 
   root 'rails_admin/main#dashboard'
