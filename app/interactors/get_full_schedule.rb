@@ -36,7 +36,7 @@ class GetFullSchedule
   end
 
   def days
-    DaySerializer.new(Day.all.includes(:set_times, :bands,:venues))
+    DaySerializer.new(Day.all.includes(:set_times, :bands, :venues))
   end
 
   def venues

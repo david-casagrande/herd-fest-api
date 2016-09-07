@@ -41,7 +41,7 @@ RailsAdmin.config do |config|
   end
   config.current_user_method(&:current_admin)
 
-  config.excluded_models = ['Admin', 'CacheStore']
+  config.excluded_models = %w(Admin CacheStore)
 
   config.model 'Band' do
     edit do
@@ -110,8 +110,22 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'Device' do
+    list do
+      field :device_id
+    end
+
+    edit do
+      exclude_fields :device_token, :device_id
+    end
+
+    show do
+      exclude_fields :device_token
+    end
+  end
+
   def set_time_object_label
-    "#{default_time(start_time)}"
+    default_time(start_time).to_s
   end
 
   def default_date(date)

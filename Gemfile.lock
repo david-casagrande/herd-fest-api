@@ -37,7 +37,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    aes (0.5.0)
     arel (6.0.3)
+    armor (0.0.3)
     ast (2.2.0)
     autoparse (0.3.3)
       addressable (>= 2.3.1)
@@ -52,7 +54,14 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    commander (4.4.0)
+      highline (~> 1.7.2)
     concurrent-ruby (1.0.0)
+    crypt_keeper (0.22.0)
+      activerecord (>= 3.1, < 4.3)
+      activesupport (>= 3.1, < 4.3)
+      aes (~> 0.5.0)
+      armor (~> 0.0.2)
     database_cleaner (1.5.1)
     devise (3.5.5)
       bcrypt (~> 3.0)
@@ -104,6 +113,10 @@ GEM
     haml (4.0.7)
       tilt
     hashie (3.4.3)
+    highline (1.7.8)
+    houston (2.2.3)
+      commander (~> 4.1)
+      json
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -293,11 +306,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  crypt_keeper (~> 0.22.0)
   database_cleaner (~> 1.5.1)
   devise (~> 3.5.5)
   dotenv-rails (~> 2.1.0)
   fabrication (~> 2.14.1)
-  google_drive
+  google_drive (~> 1.0.6)
+  houston (~> 2.2.3)
   interactor (~> 3.1.0)
   minitest-rails (~> 2.2.0)
   omniauth-google-oauth2 (~> 0.3.0)
@@ -314,4 +329,4 @@ DEPENDENCIES
   wombat (~> 2.5.1)
 
 BUNDLED WITH
-   1.10.6
+   1.12.3
