@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902064935) do
+ActiveRecord::Schema.define(version: 20160905054604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160902064935) do
     t.text     "device_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.jsonb    "schedule",     default: [], null: false
   end
 
   add_index "devices", ["device_id"], name: "index_devices_on_device_id", using: :btree
