@@ -3,6 +3,7 @@ require 'test_helper'
 describe SendNotification do
   it 'opens connection to houston connection, creates notification for all devices and writes, closes connection' do
     device = Fabricate(:device)
+    Fabricate(:device, device_token: nil)
 
     message = 'sup'
 
