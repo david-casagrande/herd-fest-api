@@ -46,6 +46,7 @@ RailsAdmin.config do |config|
   config.model 'Band' do
     edit do
       field :name
+      field :active
       field :description
       field :image_url
       field :facebook_url
@@ -61,6 +62,7 @@ RailsAdmin.config do |config|
   config.model 'Day' do
     edit do
       field :name
+      field :active
       field :date
     end
 
@@ -73,6 +75,7 @@ RailsAdmin.config do |config|
   config.model 'Venue' do
     edit do
       field :name
+      field :active
       field :street_address
     end
 

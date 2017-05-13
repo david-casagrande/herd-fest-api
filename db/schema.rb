@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905054604) do
+ActiveRecord::Schema.define(version: 20170513203246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
   enable_extension "pgcrypto"
+  enable_extension "uuid-ossp"
 
   create_table "admins", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160905054604) do
     t.string   "image_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
+    t.boolean  "active"
   end
 
   create_table "cache_stores", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160905054604) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "devices", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160905054604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.uuid     "day_id"
+    t.boolean  "active"
   end
 
   add_index "set_times", ["band_id"], name: "index_set_times_on_band_id", using: :btree
@@ -91,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160905054604) do
     t.text     "street_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
 end

@@ -11,7 +11,7 @@ module API
     end
 
     def days
-      @days ||= Day.all.includes(:set_times, :bands, :venues)
+      @days ||= Day.where(active: true).includes(:set_times, :bands, :venues)
     end
   end
 end

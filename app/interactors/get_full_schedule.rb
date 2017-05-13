@@ -32,18 +32,24 @@ class GetFullSchedule
   end
 
   def bands
-    BandSerializer.new(Band.all.includes(:set_times, :venues))
+    BandSerializer.new(Band.where(active: true).includes(:set_times, :venues))
   end
 
   def days
-    DaySerializer.new(Day.all.includes(:set_times, :bands, :venues))
+    DaySerializer.new(Day.where(active: true).includes(:set_times, :bands, :venues))
   end
 
   def venues
-    VenueSerializer.new(Venue.all.includes(:set_times, :bands))
+    VenueSerializer.new(Venue.where(active: true).includes(:set_times, :bands))
   end
 
   def set_times
-    SetTimeSerializer.new(SetTime.all.includes(:band, :venue))
+    st =
+      SetTime
+      .joins(:band, :day, :venue)
+      .where(bands: { active: true }, days: { active: true }, venues: { active: true })
+      .includes(:band, :venue)
+
+    SetTimeSerializer.new(st)
   end
 end

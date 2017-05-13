@@ -17,7 +17,7 @@ class SendNotification
   private
 
   def devices
-    context.devices ||= Device.all
+    context.devices ||= Device.where.not(device_token: nil)
   end
 
   def create_notification(device)
