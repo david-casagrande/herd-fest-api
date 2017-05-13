@@ -11,7 +11,7 @@ module API
     end
 
     def venues
-      @venues ||= Venue.all.includes(:set_times, :bands)
+      @venues ||= Venue.where(active: true).includes(:set_times, :bands)
     end
   end
 end

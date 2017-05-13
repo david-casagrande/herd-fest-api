@@ -11,7 +11,11 @@ module API
     end
 
     def set_times
-      @set_times ||= SetTime.all.includes(:band, :venue)
+      @set_times ||=
+        SetTime
+        .joins(:band, :day, :venue)
+        .where(bands: { active: true }, days: { active: true }, venues: { active: true })
+        .includes(:band, :venue)
     end
   end
 end

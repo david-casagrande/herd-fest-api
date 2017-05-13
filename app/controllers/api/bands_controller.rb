@@ -11,7 +11,7 @@ module API
     end
 
     def bands
-      @bands ||= Band.all.includes(:set_times, :venues)
+      @bands ||= Band.where(active: true).includes(:set_times, :venues)
     end
   end
 end
