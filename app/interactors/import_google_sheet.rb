@@ -19,7 +19,7 @@ class ImportGoogleSheet
       if row[0].empty?
         create_and_sync(idx, data)
       else
-        #model.update(row[0], data)
+        model.update(row[0], data)
       end
     end
 
