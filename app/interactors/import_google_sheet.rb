@@ -14,11 +14,12 @@ class ImportGoogleSheet
     worksheet.rows.each_with_index do |row, idx|
       next if idx == 0
       data = send(serializer, row)
+      data[:active] = true
 
       if row[0].empty?
-        create_and_sync(idx)
+        create_and_sync(idx, data)
       else
-        model.update(row[0], data)
+        #model.update(row[0], data)
       end
     end
 
@@ -27,7 +28,7 @@ class ImportGoogleSheet
 
   private
 
-  def create_and_sync(idx)
+  def create_and_sync(idx, data)
     r = model.create(data)
     worksheet[idx + 1, 1] = r.id
   end
