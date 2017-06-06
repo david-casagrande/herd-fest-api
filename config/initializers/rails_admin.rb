@@ -138,6 +138,15 @@ RailsAdmin.config do |config|
   config.model 'Device' do
     list do
       field :device_id
+      field :created_at do
+        formatted_value do
+          created_date(value)
+        end
+
+        pretty_value do
+          created_date(value)
+        end
+      end
     end
 
     edit do
@@ -151,6 +160,10 @@ RailsAdmin.config do |config|
 
   def set_time_object_label
     default_time(start_time).to_s
+  end
+
+  def created_date(date)
+    date.strftime('%D %l:%M %p')
   end
 
   def default_date(date)
