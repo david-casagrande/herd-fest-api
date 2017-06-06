@@ -56,6 +56,7 @@ RailsAdmin.config do |config|
     list do
       field :name
       field :description
+      field :active
     end
   end
 
@@ -69,6 +70,7 @@ RailsAdmin.config do |config|
     list do
       field :name
       field :date
+      field :active
     end
   end
 
@@ -82,6 +84,7 @@ RailsAdmin.config do |config|
     list do
       field :name
       field :street_address
+      field :active
     end
   end
 
@@ -91,9 +94,27 @@ RailsAdmin.config do |config|
     end
 
     edit do
-      field :day
-      field :band
-      field :venue
+      field :day do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope = scope.where(active: true)
+          }
+        end
+      end
+      field :band do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope = scope.where(active: true)
+          }
+        end
+      end
+      field :venue do
+        associated_collection_scope do
+          Proc.new { |scope|
+            scope = scope.where(active: true)
+          }
+        end
+      end
       field :start_time
     end
 
