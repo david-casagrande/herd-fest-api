@@ -119,6 +119,7 @@ RailsAdmin.config do |config|
     end
 
     list do
+      scopes [:active]
       field :day
       field :band
       field :venue
