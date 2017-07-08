@@ -2,7 +2,7 @@ class SetTime < ActiveRecord::Base
   include Cache
 
   default_scope { order(:start_time) }
-  scope :active, -> { joins(:day).where(days: { active: true }) }
+  scope :active, -> { joins(:day, :band).where(days: { active: true }, bands: { active: true }) }
 
   belongs_to :band
   belongs_to :venue
