@@ -1,4 +1,4 @@
-class Venue < ActiveRecord::Base
+class Venue < ApplicationRecord
   include Cache
 
   has_many :set_times, dependent: :destroy

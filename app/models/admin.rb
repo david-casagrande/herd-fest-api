@@ -1,4 +1,4 @@
-class Admin < ActiveRecord::Base
+class Admin < ApplicationRecord
   devise :trackable, :timeoutable, :validatable
   devise :database_authenticatable
   devise :omniauthable, omniauth_providers: [:google_oauth2]

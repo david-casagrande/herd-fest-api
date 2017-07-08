@@ -1,4 +1,4 @@
-class SetTime < ActiveRecord::Base
+class SetTime < ApplicationRecord
   include Cache
 
   default_scope { order(:start_time) }
