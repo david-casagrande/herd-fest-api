@@ -1,4 +1,4 @@
-class Band < ActiveRecord::Base
+class Band < ApplicationRecord
   include Cache
 
   has_many :set_times, dependent: :destroy

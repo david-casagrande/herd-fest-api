@@ -1,4 +1,4 @@
 <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
 <% end %>
-<%= link_to 'Sign in', admin_omniauth_authorize_path(:google_oauth2) %>
+<%= link_to 'Sign in', admin_google_oauth2_omniauth_authorize_path %>

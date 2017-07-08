@@ -14,6 +14,15 @@ AllCops:
 Rails:
   Enabled: true
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/VariableNumber:
+  Enabled: false
+
 # Handle via inch instead.
 Style/Documentation:
   Enabled: false
